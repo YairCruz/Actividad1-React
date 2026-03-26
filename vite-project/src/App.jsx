@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -6,6 +6,15 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (count > 10) {
+      alert("¡Llegaste al límite máximo");
+      setCount(10);
+    }else if (count < 0) {
+      setCount(0);
+    }
+  }, [count]);
 
   return (
     <>
@@ -21,12 +30,22 @@ function App() {
             Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
           </p>
         </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+
+        <div className="card">
+          <button
+            className="counter"
+            onClick={() => setCount((count) => count + 1)}
+          >
+            Count is {count}
+          </button>
+
+          <button
+            className="counter"
+            onClick={() => setCount((count) => count - 1)}
+          >
+            Decrementar: {count}
+          </button>
+        </div>
       </section>
 
       <div className="ticks"></div>
