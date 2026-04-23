@@ -4,6 +4,7 @@ import Acerca from "./pages/Acerca";
 
 import Tablas from "./pages/Tablas";
 import Navbar from "./components/Navbar";
+import Usuarios from "./pages/Usuarios";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/acerca" element={<Acerca />} />
         
         <Route path="/tablas" element={<Tablas />} />
+        <Route path="/usuarios" element={<Usuarios />} />
       </Routes>
     </>
   );
